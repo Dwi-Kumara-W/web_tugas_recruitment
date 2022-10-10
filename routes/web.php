@@ -26,11 +26,11 @@ Route::post('/login', [AuthController::class, 'authenticating'])->middleware('gu
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 
-Route::get('/account', [AccountController::class, 'index']);
-Route::get('/account-add', [AccountController::class, 'create']);
-Route::post('/account', [AccountController::class, 'store']);
-Route::get('/account-delete/{id}', [AccountController::class, 'delete']);
-Route::delete('/account-destroy/{id}', [AccountController::class, 'destroy']);
+Route::get('/account', [AccountController::class, 'index'])->middleware('auth');
+Route::get('/account-add', [AccountController::class, 'create'])->middleware('auth');
+Route::post('/account', [AccountController::class, 'store'])->middleware('auth');
+Route::get('/account-delete/{id}', [AccountController::class, 'delete'])->middleware('auth');
+Route::delete('/account-destroy/{id}', [AccountController::class, 'destroy'])->middleware('auth');
 
 Route::get('/devices', [DeviceController::class, 'index'])->middleware('auth');
 Route::get('/device-add', [DeviceController::class, 'create'])->middleware('auth');
