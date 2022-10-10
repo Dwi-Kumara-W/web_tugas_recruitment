@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -25,7 +26,6 @@ Route::get('/login', [AuthController::class, 'login'])->name('login')->middlewar
 Route::post('/login', [AuthController::class, 'authenticating'])->middleware('guest');
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
-
 Route::get('/account', [AccountController::class, 'index'])->middleware('auth');
 Route::get('/account-add', [AccountController::class, 'create'])->middleware('auth');
 Route::post('/account', [AccountController::class, 'store'])->middleware('auth');
@@ -38,3 +38,10 @@ Route::post('/device', [DeviceController::class, 'store'])->middleware('auth');
 Route::get('/device-delete/{id}', [DeviceController::class, 'delete'])->middleware('auth');
 Route::delete('/device-destroy/{id}', [DeviceController::class, 'destroy'])->middleware('auth');
 
+Route::get('/orders', [OrderController::class, 'index']);
+Route::get('/order-add', [OrderController::class, 'create']);
+Route::post('/order', [OrderController::class, 'store']);
+Route::get('/order-delete/{id}', [OrderController::class, 'delete']);
+Route::delete('/order-destroy/{id}', [OrderController::class, 'destroy']);
+Route::get('/order-edit/{id}', [OrderController::class, 'edit']);
+Route::put('/order/{id}', [OrderController::class, 'update']);
