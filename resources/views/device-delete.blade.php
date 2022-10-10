@@ -1,5 +1,5 @@
 @extends('layouts.mainlayout')
-@section('title', 'Student')
+@section('title', 'Device')
 
 @section('content')
 
@@ -12,7 +12,7 @@
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>
 
-        <a href="/students" class="btn btn-primary">Cancel</a>
+        <a href="/devices" class="btn btn-primary">Cancel</a>
     </div>
 
 @endsection

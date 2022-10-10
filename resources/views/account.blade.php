@@ -1,11 +1,11 @@
 @extends('layouts.mainlayout')
-@section('title', 'device')
+@section('title', 'Account')
 
 @section('content')
-    <h1>Ini Halaman Device</h1>
+    <h1>Ini Halaman Account</h1>
 
     <div class="my-5 d-flex justify-content-between">
-        <a href="device-add" class="btn btn-primary">Add Data</a>
+        <a href="account-add" class="btn btn-primary">Add Data</a>
         {{-- <a href="student-deleted" class="btn btn-info">Show Deleted Data</a> --}}
     </div>
 
@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <h3>Device List</h3>
+    <h3>Account List</h3>
 
     <div class="my-3 col-12 col-sm-8 col-md-5">
         <form action="" method="get">
@@ -30,24 +30,28 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Username</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>username device</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($devices as $device)
+            @foreach ($users as $user)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $device->username }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->device->username }}</td>
                     <td>
                         {{-- <a href="device/{{ $device->id }}">detail</a>
                         <a href="device-edit/{{ $device->id }}">edit</a> --}}
-                        <a href="device-delete/{{ $device->id }}">delete</a>
+                        <a href="account-delete/{{ $user->id }}">delete</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-    {{ $devices->withQueryString()->links() }}
+    {{ $users->withQueryString()->links() }}
 @endsection

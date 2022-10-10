@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="mt-5 col-8 m-auto">
-        <form method="POST" action="register" enctype="multipart/form-data">
+        <form method="POST" action="account" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">name</label>
@@ -20,11 +20,11 @@
             </div>
             <div class="mb-3">
                 <label for="device">Device</label>
-                <select name="device_id" id="device" class="form-control" required>
+                <select name="device_id" id="device_id" class="form-control" required>
                     <option value="">Select One</option>
-                    {{-- @foreach ($class as $item)
-                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                    @endforeach --}}
+                    @foreach ($devices as $item)
+                        <option value="{{ $item->id }}">{{ $item->username }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="mb-3">

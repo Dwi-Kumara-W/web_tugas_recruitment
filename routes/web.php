@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DeviceController;
@@ -21,11 +22,15 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
-Route::get('/register', [RegisterController::class, 'register'])->name('register')->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticating'])->middleware('guest');
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
+
+Route::get('/account', [AccountController::class, 'index']);
+Route::get('/account-add', [AccountController::class, 'create']);
+Route::post('/account', [AccountController::class, 'store']);
+Route::get('/account-delete/{id}', [AccountController::class, 'delete']);
+Route::delete('/account-destroy/{id}', [AccountController::class, 'destroy']);
 
 Route::get('/devices', [DeviceController::class, 'index'])->middleware('auth');
 Route::get('/device-add', [DeviceController::class, 'create'])->middleware('auth');
