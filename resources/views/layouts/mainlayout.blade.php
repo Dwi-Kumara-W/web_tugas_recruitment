@@ -32,6 +32,9 @@
                         <a class="nav-link" href="/orders">Daftar Orders</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/register">Daftar Akun</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/log">Log Request</a>
                     </li>
                 </ul>

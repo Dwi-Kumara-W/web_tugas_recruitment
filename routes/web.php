@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -24,3 +25,11 @@ Route::get('/register', [RegisterController::class, 'register'])->name('register
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticating'])->middleware('guest');
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
+
+
+Route::get('/devices', [DeviceController::class, 'index'])->middleware('auth');
+Route::get('/device-add', [DeviceController::class, 'create'])->middleware('auth');
+Route::post('/device', [DeviceController::class, 'store'])->middleware('auth');
+Route::get('/device-delete/{id}', [DeviceController::class, 'delete'])->middleware('auth');
+Route::delete('/device-destroy/{id}', [DeviceController::class, 'destroy'])->middleware('auth');
+

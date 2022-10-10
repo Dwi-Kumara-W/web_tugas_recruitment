@@ -44,7 +44,6 @@
                     </div>
                 </form>
             </div>
-            <a class="btn btn-primary form-control" href="/register">Belum Punya Akun ?</a>
         </div>
     </div>
 
