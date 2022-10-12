@@ -38,10 +38,10 @@ Route::post('/device', [DeviceController::class, 'store'])->middleware('auth');
 Route::get('/device-delete/{id}', [DeviceController::class, 'delete'])->middleware('auth');
 Route::delete('/device-destroy/{id}', [DeviceController::class, 'destroy'])->middleware('auth');
 
-Route::get('/orders', [OrderController::class, 'index']);
-Route::get('/order-add', [OrderController::class, 'create']);
-Route::post('/order', [OrderController::class, 'store']);
-Route::get('/order-delete/{id}', [OrderController::class, 'delete']);
-Route::delete('/order-destroy/{id}', [OrderController::class, 'destroy']);
-Route::get('/order-edit/{id}', [OrderController::class, 'edit']);
-Route::put('/order/{id}', [OrderController::class, 'update']);
+Route::get('/orders', [OrderController::class, 'index'])->middleware('auth');
+Route::get('/order-add', [OrderController::class, 'create'])->middleware('auth');
+Route::post('/order', [OrderController::class, 'store'])->middleware('auth');
+Route::get('/order-delete/{id}', [OrderController::class, 'delete'])->middleware('auth');
+Route::delete('/order-destroy/{id}', [OrderController::class, 'destroy'])->middleware('auth');
+Route::get('/order-edit/{id}', [OrderController::class, 'edit'])->middleware('auth');
+Route::put('/order/{id}', [OrderController::class, 'update'])->middleware('auth');
